@@ -53,7 +53,6 @@ export default function App() {
   );
 }
 
-// ✅ Main App Content
 function AppContent({ menuOpen, setMenuOpen }) {
   return (
     <View style={{ flex: 1 }}>
@@ -72,7 +71,6 @@ function AppContent({ menuOpen, setMenuOpen }) {
   );
 }
 
-// ✅ Screen Wrapper (Fix Navigation State Issues)
 function ScreenWrapper({ component: Component, navigation, menuOpen, setMenuOpen }) {
   const currentRoute = navigation.getState()?.routes[navigation.getState()?.index]?.name || "Home";
   console.log("📌 Current Route:", currentRoute);
@@ -81,7 +79,6 @@ function ScreenWrapper({ component: Component, navigation, menuOpen, setMenuOpen
     <ImageBackground source={require("./src/components/grid.webp")} style={styles.background}>
       <Component navigation={navigation} />
 
-      {/* ✅ Navigation Menu */}
       {!menuOpen && (
         <TouchableOpacity onPress={() => setMenuOpen(true)} style={styles.menuButton}>
           <ImageBackground source={require("./src/components/crumpled.png")} style={styles.menuImage} />
@@ -107,7 +104,6 @@ function ScreenWrapper({ component: Component, navigation, menuOpen, setMenuOpen
   );
 }
 
-// ✅ Styles
 const styles = StyleSheet.create({
   container: {
     flex: 1,
